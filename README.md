@@ -3,14 +3,15 @@ INSTALLATION
 Note: Minimal experience with setting up a webserver and a database server is required (or knowing how to use Google).
 
 1. Install a webserver with support for PHP 5.4 or greater
-2. Install a database server that is supported by PHP (like MySQL or MariaDB)
-3. Create a user and a database for NRStats
-4. Enter your database connection info into config_empty.inc.php
-5. Rename config_empty.inc.php to config.inc.php
-6. Point your browser to (your installation folder)/scripts/install.php
-7. If install.php showed no errors, delete it
-8. Point your browser to where you installed NRStats
-9. Enjoy!
+2. Put the contents of the WebContent folder somewhere on your server, like a nrstats folder
+3. Install a database server that is supported by PHP (like MySQL or MariaDB)
+4. Create a user and a database for NRStats
+5. Enter your database connection info into config_empty.inc.php
+6. Rename config_empty.inc.php to config.inc.php
+7. Point your browser to (your installation folder)/scripts/install.php
+8. If install.php showed no errors, delete it
+9. Point your browser to where you installed NRStats
+10. Enjoy!
 
 LICENSE AND COPYRIGHT
 NRStats © 2017 Jan Hoppmann
