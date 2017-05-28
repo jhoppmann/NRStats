@@ -35,3 +35,7 @@ NRStats was tested in Konqueror 4.14.25 and Google Chrome 54.0.2840.59 (64-bit).
 
 DONATIONS
 I don't want to charge money for using NRStats (because I'm a fan of free software), but if you want to donate money, there's a PayPal donation button when you click on "ABOUT NRSTATS" in the footer.
+
+NETRUNNER
+Netrunner is a trademark and copyrighted by Fantasy Flight Games and / or Wizards of the Coast.
+This software is not produced, endorsed, supported or affiliated with Fantasy Flight Games and / or Wizards of the Coast.
