@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="robots" content="noindex, nofollow" />
+	<title>NRStats</title>
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+	<link type="text/css" rel="stylesheet" href="css/stats.css"/>
+	<link rel="icon" type="image/png" href="statsicon.png">
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+	
+	<script src="js/cors.js"></script>
+	<script src="js/netrunnerData.js"></script>
+	<script src="js/charts.js"></script>
+	<script src="js/evaluateStats.js"></script>
+	<script src="js/saving.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	
+</head>
+<body>
+<header><h1>Netrunner Game Stats</h1></header>
+<table class="highlight overallInfo" style="display: compact;">
+	<tr>
+		<th>Category</th>
+		<th>Info</th>
+	</tr>
+	
+	<tr>
+	<td>Overall Games</td>
+	<td id="games"></td>
+	</tr>
+</table>
+
+<div class="card" style="display: inline-block">
+	<div class="card-content">
+		<span class="card-title">Games Won</span>
+		<div class="card-action" id="wonGames"></div>
+	</div>
+</div>
+
+<div class="card" style="display: inline-block">
+	<div class="card-content">
+		<span class="card-title">Win Types</span>
+		<div class="card-action" id="gameTypes"></div>
+	</div>
+</div>
+
+
+<div class="card" style="display: inline-block">
+	<div class="card-content">
+		<span class="card-title">Accumulated Points</span>
+		<div class="card-action" id="accumulatedPoints"></div>
+	</div>
+</div>
+
+<div class="card" style="display: inline-block">
+	<div class="card-content">
+		<span class="card-title">IDs Played</span>
+		<div class="card-action" id="idsPlayed"></div>
+	</div>
+</div>
+
+<div class="card" style="display: inline-block">
+	<div class="card-content">
+		<span class="card-title">Win Percentage By ID</span>
+		<div class="card-action" id="wonById"></div>
+	</div>
+</div>
+
+<div class="fixed-action-btn">
+	<a class="btn-floating btn-large waves-effect waves-light blue" onclick="openForm()"><i class="material-icons">add</i></a>
+</div>
+
+<div id="gameData" class="modal bottom-sheet dismiss">
+	<div class="modal-content">
+		<table id="gamesTable" class="highlight striped centered">
+			<thead>
+				<tr>
+					<th>Corp</th>
+					<th>Corp ID</th>
+					<th>Corp Points</th>
+					<th>Runner</th>
+					<th>Runner ID</th>
+					<th>Runner Points</th>
+					<th>Winnner</th>
+					<th>Date</th>
+					<th>Win Condition</th>
+				</tr>
+				</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+	<div class="modal-footer"></div>
+</div>
+
+<div id="entryForm" class="modal nondismiss">
+	<div class="modal-content">
+		<form class="col s12" id="gameForm">
+		<div class="row">
+			<div class="input-field col">
+				<input type="text" name="CORP" placeholder="Corp Player" />
+			</div>
+			<div class="input-field col">
+				<select name="CORP_ID" id="corpId">
+				</select>
+				<label>Corp ID</label>
+			</div>
+			<div class="input-field col">
+				<input type="number" name="CORP_POINTS" placeholder="Corp Points">
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col">
+				<input type="text" name="RUNNER" placeholder="Runner Player" />
+			</div>
+			<div class="input-field col">
+				<select name="RUNNER_ID" id="runnerId">
+				</select>
+				<label>Runner ID</label>
+			</div>
+			<div class="input-field col">
+				<input type="number" name="RUNNER_POINTS" placeholder="Runner Points">
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col">
+				<select name="WINNER">			
+				<option value="Corp">Corp</option>
+				<option value="Runner">Runner</option>
+				</select>
+				<label>Winner</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col">
+				<select name="WINNINGTYPE">
+					<option value="POINTS">Reached 7 Points</option>
+					<option value="FLATLINE">Runner flatlined</option>
+					<option value="DECK_EMPTY">R&amp;D decked out</option>		
+				</select>
+				<label>Won by</label>
+			</div>
+		</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<a class="waves-effect waves-light btn blue" onclick="readAndSave()">Submit</a>
+		<a class="waves-effect waves-light btn blue" onclick="closeForm()">Close</a>
+	</div>
+</div>
+
+<div id="about" class="modal dismiss">
+	<div class="modal-content">
+	<p>NRStats © 2017 Jan Hoppmann</p>
+	<p>Version 1.0.0</p>
+	<p>If you enjoy using this software, it would be nice of you to donate:</p>
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+		<input type="hidden" name="cmd" value="_s-xclick">
+		<input type="hidden" name="hosted_button_id" value="8ZUJJ73AA49UY">
+		<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+		<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+		</form>	
+	</div>
+</div>
+
+<footer class="page-footer">
+	<a class="waves-effect waves-light btn blue" onclick="openGames()">Show Games</a>
+	<a class="waves-effect waves-light btn blue" onclick="openAbout()">About NRStats</a>
+</footer>
+
+</body>
+</html>

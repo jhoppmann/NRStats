@@ -1,0 +1,29 @@
+.card {
+	margin-left: 30px;
+}
+
+h1 {
+	text-align: center;
+}
+
+.btn {
+	margin: 10px !important;
+}
+
+.overallInfo {
+	border: 1px solid black;
+}
+
+.page-footer { background-color: #1a237e;}
+
+.blue {
+	background-color: #2196f3;
+}
+
+ul.dropdown-content.select-dropdown li span {
+    color: #2196f3;
+}
+
+.withPadding {
+	padding: 10px;
+}
